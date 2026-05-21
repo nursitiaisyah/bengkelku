@@ -9,6 +9,13 @@ class ServiceType extends Model
     protected $fillable = [
         'image',
         'name',
-        'description'
+        'descriptions'
     ];
+
+    public function scopeSearch($query, $search)
+    {
+        return $query->when($search, function ($query, $search) {
+            $query->where('name', 'like', "%{$search}%");
+        });
+    }
 }
