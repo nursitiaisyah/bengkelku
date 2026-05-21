@@ -20,7 +20,7 @@ class ServiceTypeResource extends JsonResource
             'id'            => $this->id,
             'image'         => $this->image ? asset(Storage::url($this->image)) : null,
             'name'          => $this->name,
-            'descriptions'   => $this->descriptions
+            'descriptions'  => $this->descriptions
         ];
     }
 }
