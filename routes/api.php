@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\V1\BookingController;
 use App\Http\Controllers\Api\V1\ClientController;
 use App\Http\Controllers\Api\V1\ServiceController;
 use App\Http\Controllers\Api\V1\ServiceImageController;
@@ -26,5 +27,7 @@ Route::prefix('v1')->group(function () {
 
         Route::get('clients/options', [ClientController::class, 'options']);
         Route::apiResource('clients', ClientController::class);
+
+        Route::apiResource('bookings', BookingController::class)->only(['index', 'store', 'show']);
     });
 });
